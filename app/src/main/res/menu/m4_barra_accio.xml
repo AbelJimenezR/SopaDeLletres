@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- Cerca, apareix com un boto -->
+    <item android:id="@+id/Ayuda"
+        android:title="@string/Ayuda"
+        android:showAsAction="ifRoom" />
+    <!-- Ajustos, apareix com a desplegable-->
+    <item android:id="@+id/exit"
+        android:title="@string/Salir"
+        android:showAsAction="never" />
+
+</menu>
