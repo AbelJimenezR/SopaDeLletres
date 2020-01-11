@@ -1,5 +1,7 @@
 package edu.fje.dam2.abel.sopadelletres;
 
+import android.util.Log;
+
 import java.util.Random;
 
 
@@ -34,6 +36,8 @@ public class WordSearch {
         // make solution board
         board = fillRestSolution(board);
         solutionBoard = new char[board.length][board.length];
+        Log.i("d", solutionBoard.toString());
+
         for (int r=0; r<board.length; r++) {
             for (int c=0; c<board[0].length; c++) {
                 solutionBoard[r][c] = board[r][c];
