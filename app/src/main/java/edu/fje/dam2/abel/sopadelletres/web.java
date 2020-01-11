@@ -11,7 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-public class web extends AppCompatActivity {j
+public class web extends AppCompatActivity {
 
     WebView navegador;
 
