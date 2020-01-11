@@ -64,7 +64,7 @@ public class MainActivity extends menu implements View.OnClickListener {
                 askUser();
                 break;
             case R.id.buttonExit:
-                finish();
+                this.finishAffinity();
                 System.exit(0);
                 break;
         }

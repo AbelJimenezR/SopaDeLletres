@@ -2,29 +2,21 @@ package edu.fje.dam2.abel.sopadelletres;
 
 import java.util.ArrayList;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 
-/**
- * Classe que hereta de la classe ListActivity i que
- * mostra com podem treballar amb la base de dades SQLlite3
- * @author sergi.grau@fje.edu
- * @version 1.0, 29/11/2012
- */
 
-public class Puntuacions extends ListActivity {
+public class Puntuacions extends Activity {
 
 
 private final String BASE_DADES = "Puntuacions";
 private final String TAULA = "usuari";
 private String userName;
 private String time;
+
 @Override
 public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -32,7 +24,6 @@ public void onCreate(Bundle icicle) {
         userName= getUserData.getStringExtra("username");
         time= getUserData.getStringExtra("playtime");
 
-//        Log.i("d",time);
 
         ArrayList<String> resultats = new ArrayList<String>();
 
@@ -41,8 +32,6 @@ public void onCreate(Bundle icicle) {
             try {
 
                 baseDades = this.openOrCreateDatabase(BASE_DADES, MODE_PRIVATE, null);
-
-               // baseDades.execSQL("DROP TABLE usuari");
 
                 baseDades.execSQL("CREATE TABLE IF NOT EXISTS "
                         + TAULA
@@ -84,8 +73,6 @@ public void onCreate(Bundle icicle) {
                 }
             }
 
-       /*this.setListAdapter(new ArrayAdapter<String>(this,
-        android.R.layout.simple_list_item_1, resultats));*/
 
         Intent intent= new Intent(this,MainActivity.class);
         intent.putExtra("resultats",resultats );
