@@ -1,8 +1,6 @@
 package edu.fje.dam2.abel.sopadelletres;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -13,14 +11,14 @@ import android.widget.TextView;
 public class LetterAdapter extends BaseAdapter {
 
     private Context mContext;
-    public static String[] wordList = {"Alison", "Timothy", "Leona", "Stella", "Lily"};
+    public static String[] wordList;
 
     private static WordSearch wordSearch;
     private static int row, col;
 
 
-    public LetterAdapter(Context c,String[] words) {
-        wordList=words;
+    public LetterAdapter(Context c, String[] words) {
+        wordList = words;
         mContext = c;
         wordSearch = new WordSearch(wordList, 10);
 
@@ -28,7 +26,7 @@ public class LetterAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return wordSearch.getSize()*wordSearch.getSize();
+        return wordSearch.getSize() * wordSearch.getSize();
     }
 
     @Override
@@ -52,8 +50,8 @@ public class LetterAdapter extends BaseAdapter {
         } else {
             textView = (TextView) convertView;
         }
-        row = position/wordSearch.getSize();
-        col = position%wordSearch.getSize();
+        row = position / wordSearch.getSize();
+        col = position % wordSearch.getSize();
         textView.setText(Character.toString(wordSearch.getWordSearch()[row][col]));
         return textView;
     }
@@ -62,19 +60,6 @@ public class LetterAdapter extends BaseAdapter {
         row = position / wordSearch.getSize();
         col = position % wordSearch.getSize();
         return Character.toString(wordSearch.getWordSearch()[row][col]);
-    }
-
-    public static String[] getWords(){
-        return wordList;
-    }
-
-    public void setWords(String[] words){
-        wordList=words;
-        for(int x=0;x<words.length;x++){
-
-            wordList[x]=words[x];
-            //Log.i("er",words[x]);
-        }
     }
 
 
