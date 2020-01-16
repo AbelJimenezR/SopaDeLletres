@@ -57,7 +57,7 @@ public class PantallaJuego extends menu {
         mCursor.moveToFirst();
 
         while (mCursor.moveToNext()) {
-            if (mCursor.getString(1).length() < 7 && !mCursor.getString(1).contains(" ")) {
+            if (mCursor.getString(1).length() < 6 && !mCursor.getString(1).contains(" ")) {
                 its2.add(mCursor.getString(1));
             }
         }
